@@ -5,9 +5,9 @@ using System.Windows.Controls;
 
 namespace ScenesTest.Scenes
 {
-    public abstract class Scene : Panel, IScene
+    public abstract class Scene : Grid, IScene
     {
-        private MainWindow _mainWindow;
+        protected MainWindow _mainWindow;
 
         public Scene(MainWindow mainWindow)
         {

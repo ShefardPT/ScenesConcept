@@ -14,6 +14,9 @@ namespace ScenesTest.Scenes
 
         private void SwitchSceneToSceneTwo(object sender, RoutedEventArgs e)
         {
+            var sceneTwo = new SceneTwo(this._mainWindow) { Width = 200, Height = 500};
+
+            this._mainWindow.Dispatcher.Invoke(() => _mainWindow.SetScene(sceneTwo));
         }
     }
 }

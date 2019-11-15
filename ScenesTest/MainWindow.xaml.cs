@@ -21,22 +21,28 @@ namespace ScenesTest
     /// </summary>
     public partial class MainWindow : Window
     {
-        private Panel MainScene;
+        private Panel MainScenePanel;
 
         public MainWindow()
         {
             InitializeComponent();
 
-            var firstScene = new SceneOne(this){Height = 300, Width = 600, Background = new SolidColorBrush(Colors.LightGray)};
+            var firstScene = new SceneOne(this,
+                new Grid()
+                {
+                    Height = 300,
+                    Width = 600,
+                    Background = new SolidColorBrush(Colors.LightGray)
+                });
+
             SetScene(firstScene);
         }
 
-        public void SetScene(Panel scene)
+        public void SetScene(Scene scene)
         {
             this.MainGrid.Children.Clear();
-            this.MainScene = scene;
-            MainGrid.Children.Add(MainScene);
-            this.SizeToContent = SizeToContent.WidthAndHeight;
+            this.MainScenePanel = scene.ScenePanel;
+            MainGrid.Children.Add(MainScenePanel);
         }
     }
 }

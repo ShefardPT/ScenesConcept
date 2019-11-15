@@ -7,7 +7,7 @@ using System.Windows.Media;
 
 namespace ScenesTest.Scenes
 {
-    partial class SceneOne :  Scene
+    partial class SceneOne :  GridScene
     {
         public Button BtnSceneOne;
         public GridSplitter SplitterSceneOne;
@@ -15,9 +15,9 @@ namespace ScenesTest.Scenes
 
         public override void Initialize()
         {
-            this.ColumnDefinitions.Add(new ColumnDefinition() { Width = new GridLength(1, GridUnitType.Star) });
-            this.ColumnDefinitions.Add(new ColumnDefinition() { Width = new GridLength(1, GridUnitType.Star) });
-            this.ColumnDefinitions.Add(new ColumnDefinition() { Width = new GridLength(1, GridUnitType.Star) });
+            this.GridScenePanel.ColumnDefinitions.Add(new ColumnDefinition() { Width = new GridLength(1, GridUnitType.Star) });
+            this.GridScenePanel.ColumnDefinitions.Add(new ColumnDefinition() { Width = new GridLength(1, GridUnitType.Star) });
+            this.GridScenePanel.ColumnDefinitions.Add(new ColumnDefinition() { Width = new GridLength(1, GridUnitType.Star) });
 
             TextBlockBtnSceneOne = new TextBlock(){Text = "Switch to the scene 2." , TextWrapping = TextWrapping.Wrap};
 
@@ -35,8 +35,8 @@ namespace ScenesTest.Scenes
                 Background = new SolidColorBrush(Colors.Black)
             };
 
-            this.Children.Add(BtnSceneOne);
-            this.Children.Add(SplitterSceneOne);
+            this.ScenePanel.Children.Add(BtnSceneOne);
+            this.ScenePanel.Children.Add(SplitterSceneOne);
 
             Grid.SetColumn(BtnSceneOne, 0);
             Grid.SetColumn(SplitterSceneOne, 1);

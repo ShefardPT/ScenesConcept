@@ -8,16 +8,17 @@ namespace ScenesTest.Scenes
 {
     public partial class SceneTwo
     {
-        public SceneTwo(MainWindow mainWindow) : base(mainWindow)
+        public SceneTwo(MainWindow mainWindow, Grid scenePanel) : base(mainWindow, scenePanel)
         {
             this.BtnSceneTwo.Click += this.SwitchSceneToSceneOne;
         }
 
         private void SwitchSceneToSceneOne(object sender, RoutedEventArgs e)
-        {
-            var sceneOne = new SceneOne(this._mainWindow) { Width = 500, Height = 200 };
+        {   
+            var sceneOne = new SceneOne(this.MainWindow, 
+                new Grid() { Width = 500, Height = 200 });
 
-            this._mainWindow.Dispatcher.Invoke(() => _mainWindow.SetScene(sceneOne));
+            this.MainWindow.Dispatcher.Invoke(() => MainWindow.SetScene(sceneOne));
         }
     }
 }

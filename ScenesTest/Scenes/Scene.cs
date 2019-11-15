@@ -5,13 +5,15 @@ using System.Windows.Controls;
 
 namespace ScenesTest.Scenes
 {
-    public abstract class Scene : Grid, IScene
-    {
-        protected MainWindow _mainWindow;
+    public abstract class Scene : IScene
+    { 
+        protected MainWindow MainWindow;
+        public Panel ScenePanel;
 
-        public Scene(MainWindow mainWindow)
+        public Scene(MainWindow mainWindow, Panel scenePanel)
         {
-            _mainWindow = mainWindow;
+            MainWindow = mainWindow;
+            ScenePanel = scenePanel;
             this.Initialize();
         }
 

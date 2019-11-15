@@ -2,21 +2,23 @@
 using System.Collections.Generic;
 using System.Text;
 using System.Windows;
+using System.Windows.Controls;
 
 namespace ScenesTest.Scenes
 {
     public partial class SceneOne
     {
-        public SceneOne(MainWindow mainWindow) : base(mainWindow)
+        public SceneOne(MainWindow mainWindow, Grid scenePanel) : base(mainWindow, scenePanel)
         {
             this.BtnSceneOne.Click += this.SwitchSceneToSceneTwo;
         }
 
         private void SwitchSceneToSceneTwo(object sender, RoutedEventArgs e)
         {
-            var sceneTwo = new SceneTwo(this._mainWindow) { Width = 200, Height = 500};
+            var sceneTwo = new SceneTwo(this.MainWindow,
+                new Grid() { Width = 200, Height = 500 }) ;
 
-            this._mainWindow.Dispatcher.Invoke(() => _mainWindow.SetScene(sceneTwo));
+            this.MainWindow.Dispatcher.Invoke(() => MainWindow.SetScene(sceneTwo));
         }
     }
 }
